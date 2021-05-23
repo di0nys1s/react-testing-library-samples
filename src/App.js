@@ -2,13 +2,13 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const [buttonColor, setButtonColor] = useState("blue");
+  const [buttonColor, setButtonColor] = useState("red");
   const [isChecked, setIsChecked] = useState(false);
 
   const newButtonColor = buttonColor === "red" ? "blue" : "red";
 
   const buttonStyle = {
-    backgroundColor: isChecked ? "grey" : buttonColor,
+    backgroundColor: isChecked ? "gray" : buttonColor,
     color: "#fff",
     margin: "1rem",
     padding: "2rem",
@@ -25,7 +25,7 @@ function App() {
           style={buttonStyle}
           disabled={isChecked}
         >
-          {isChecked ? "Button is disabled" : `Change to ${buttonColor}`}
+          {isChecked ? "Button is disabled" : `Change to ${newButtonColor}`}
         </button>
         <div>
           <input
