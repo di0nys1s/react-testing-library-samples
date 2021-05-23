@@ -1,11 +1,17 @@
 import "./App.css";
 import { useState } from "react";
 
+export function replaceCamelWithSpaces(colorName) {
+  // regex if you find a capital letter in the middle of the word and even if you find it multiple times, replace it with space
+  return colorName.replace(/\B([A-Z])\B/g, " $1");
+}
+
 function App() {
-  const [buttonColor, setButtonColor] = useState("red");
+  const [buttonColor, setButtonColor] = useState("MediumVioletRed");
   const [isChecked, setIsChecked] = useState(false);
 
-  const newButtonColor = buttonColor === "red" ? "blue" : "red";
+  const newButtonColor =
+    buttonColor === "MediumVioletRed" ? "MidnightBlue" : "MediumVioletRed";
 
   const buttonStyle = {
     backgroundColor: isChecked ? "gray" : buttonColor,
@@ -25,7 +31,9 @@ function App() {
           style={buttonStyle}
           disabled={isChecked}
         >
-          {isChecked ? "Button is disabled" : `Change to ${newButtonColor}`}
+          {isChecked
+            ? "Button is disabled"
+            : `Change to ${replaceCamelWithSpaces(newButtonColor)}`}
         </button>
         <div>
           <input
