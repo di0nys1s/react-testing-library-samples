@@ -30,10 +30,14 @@ function App() {
         <div>
           <input
             type="checkbox"
+            id="disable-button-checkbox"
             aria-checked={isChecked}
             defaultChecked={isChecked}
             onChange={(e) => setIsChecked(e.target.checked)}
           />
+          <label htmlFor="disable-button-checkbox">
+            {!isChecked ? `Disable button` : `Enable button`}
+          </label>
         </div>
       </div>
     </>
